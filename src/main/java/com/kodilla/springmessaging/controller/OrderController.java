@@ -2,10 +2,7 @@ package com.kodilla.springmessaging.controller;
 
 import com.kodilla.springmessaging.model.Order;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -21,7 +18,7 @@ public class OrderController {
     }
 
     // Sample call: localhost:8080/order/create?name=michal&dish=pizza
-    @GetMapping("/create")
+    @PostMapping("/create")
     public void create(@RequestParam String name, @RequestParam String dish){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         String orderTime = LocalDateTime.now().format(formatter);
