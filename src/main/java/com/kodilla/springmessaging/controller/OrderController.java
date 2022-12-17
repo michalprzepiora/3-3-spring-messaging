@@ -17,8 +17,8 @@ public class OrderController {
         this.jmsTemplate = jmsTemplate;
     }
 
-    // Sample call: localhost:8080/order/create?name=michal&dish=pizza
-    @PostMapping("/create")
+    // Sample POST call: localhost:8080/order?name=michal&dish=pizza
+    @PostMapping()
     public void create(@RequestParam String name, @RequestParam String dish){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         String orderTime = LocalDateTime.now().format(formatter);
